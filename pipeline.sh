@@ -14,7 +14,12 @@ set -e
 # Strip path and last extension
 NAME="$(basename "${1%.*}")"
 
-mkdir -p output/converted output/cleaned output/tokenized output/tokenized-first$2tokens
+mkdir -p \
+	output/converted \
+	output/cleaned \
+	output/tokenized \
+	output/tokenized-first$2tokens \
+	output/spelling
 ebook-convert "$1" "output/converted/$NAME.txt"
 python3 preproc.py "output/converted/$NAME.txt" "output/cleaned/$NAME.txt"
 $ALPINO_HOME/Tokenization/add_key < "output/cleaned/$NAME.txt" \
@@ -25,3 +30,11 @@ python3 firstntokens.py \
 	$2 \
 	"output/tokenized/$NAME.tok" \
 	"output/tokenized-first$2tokens/$NAME.tok"
+pushd ../oudeboeken
+cat ../dutchlitpreproc/output/tokenized-first$2tokens/$NAME.tok \
+	| python3 triples.py \
+	| python3 meta.py spelling \
+	| sed -f map.sed \
+	| python3 meta.py hand2 \
+	> ../dutchlitpreproc/output/spelling/$NAME.tok
+popd

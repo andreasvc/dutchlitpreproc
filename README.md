@@ -1,7 +1,7 @@
 # Dutch Literature Pipeline
 
 Preprocessing pipeline for Dutch literature and other texts:
-convert, clean, tokenize, truncate.
+convert, clean, tokenize, truncate, and normalize spelling.
 
 ## Requirements
 
@@ -15,6 +15,9 @@ Other requirements:
 - Alpino: https://www.let.rug.nl/vannoord/alp/Alpino/
 
   Alpino should be installed and available in `$ALPINO_HOME`
+- Spelling normalization script:
+  `$ git clone https://github.com/gertjanvannoord/oudeboeken.git`
+  (clone next to this repository)
 - GNU Make
 
 ## Usage
@@ -25,7 +28,8 @@ Other requirements:
     <TOKENLIMT> truncate to this number of tokens (rounded up to next sentence boundary)
 
 Writes output in the following subdirectories in `output/`:
-`converted`, `cleaned`, `tokenized`, `tokenized-first$2tokens`
+`converted`, `cleaned`, `tokenized`, `tokenized-first$2tokens`,
+and `spelling`.
 
 Front and back matter from Project Gutenberg is automatically removed.
 Line numbers for front and back matter can also be specified manually
