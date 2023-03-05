@@ -15,6 +15,7 @@ Other requirements:
   $ apt-get install calibre
 - Alpino: https://www.let.rug.nl/vannoord/alp/Alpino/
   Alpino should be installed and available in `$ALPINO_HOME`
+- GNU Make
 
 ## Usage
 
@@ -35,7 +36,7 @@ in a .csv file. To generate such a .csv file, run:
 This generates `output/paratext-uncorrected.csv`. Rename this file to
 `output/paratext-corrected.csv`, and edit this file so that the line numbers in
 columns "start" and "end" (1-based, inclusive interval) refer to the text that
-should be kept for each filename in column "Label" (without path).
+should be kept for each filename in column "Label" (without path or extension).
 Re-run the pipeline. Front and back matter will be stripped before cleaning and
 written to `output/paratext/`.
 

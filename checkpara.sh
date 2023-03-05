@@ -13,5 +13,7 @@ headtail () {
 
 pushd output/cleaned
 for FNAME in *.txt
+do
 	headtail $FNAME
+done
 popd
