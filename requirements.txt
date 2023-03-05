@@ -1,0 +1,2 @@
+pandas
+https://github.com/raduangelescu/gutenbergpy/archive/master.tar.gz
