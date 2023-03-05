@@ -7,13 +7,13 @@ convert, clean, tokenize, truncate.
 
 Python packages:
 
-	$ pip install -r requirements.txt
+    $ pip install -r requirements.txt
 
 Other requirements:
 
-- calibre
-  $ apt-get install calibre
+- Calibre: `$ apt-get install calibre`
 - Alpino: https://www.let.rug.nl/vannoord/alp/Alpino/
+
   Alpino should be installed and available in `$ALPINO_HOME`
 - GNU Make
 
@@ -31,7 +31,7 @@ Front and back matter from Project Gutenberg is automatically removed.
 Line numbers for front and back matter can also be specified manually
 in a .csv file. To generate such a .csv file, run:
 
-	$ python3 genpara.py 'converted/*/*.txt'
+    $ python3 genpara.py 'converted/*/*.txt'
 
 This generates `output/paratext-uncorrected.csv`. Rename this file to
 `output/paratext-corrected.csv`, and edit this file so that the line numbers in
@@ -44,8 +44,8 @@ written to `output/paratext/`.
 
 Project Gutenberg text with ID 18066
 
-$ wget http://www.gutenberg.lib.md.us/1/8/0/6/18066/18066-h/18066-h.htm
-$ bash pipeline.sh 18066-h.htm 2000
+    $ wget http://www.gutenberg.lib.md.us/1/8/0/6/18066/18066-h/18066-h.htm
+    $ bash pipeline.sh 18066-h.htm 2000
 
 ## Other scripts
 
